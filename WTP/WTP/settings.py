@@ -19,7 +19,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
+# CHANGE WHEN DEPLOYING
 SECRET_KEY = 'mvwdd#o^j3u)$!aw)e54ywwmo2(oashpcrrf)a#&tma7*lwux&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -75,8 +75,13 @@ WSGI_APPLICATION = 'WTP.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'django_testing',                      # Or path to database file if using sqlite3.
+        # The following settings are not used with sqlite3:
+        'USER': 'django_test',
+        'PASSWORD': 'dupadupa',
+        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'PORT': '',                      # Set to empty string for default.
     }
 }
 
@@ -116,5 +121,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
+
+# CHANGE WHEN DEPLOYING
+STATIC_ROOT = '~/Projects/WTP/WTP/WTP/static/'
 
 STATIC_URL = '/static/'
